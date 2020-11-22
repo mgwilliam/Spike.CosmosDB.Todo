@@ -1,0 +1,41 @@
+﻿@using System
+@model ItemViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create a new item</h2>
+
+<form asp-route="CreateItem" method="post" class="form-horizontal" role="form">
+    <h4>Create an item</h4>
+    <hr/>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Description" class="form-control"/>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </div>
+</form>
+
+<div>
+    @Html.RouteLink("Back to List", "ListItems")
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,45 @@
+﻿@using System
+@model Todo.Core.QueryStore.QueryModels.ItemListQueryModel
+@{
+    ViewData["Title"] = "List of To-Do Items";
+}
+
+@if (Model.AwaitingUpdate)
+{
+    <div class="delayed">Recent changes are being processed - refresh to try again</div>
+}
+
+<h2>List of To-Do Items</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Complete?</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @(item.Completed ? "Yes" : "No")
+            </td>
+            <td>
+                @Html.RouteLink("Edit", "EditItem", new {id = item.Id}) |
+                @Html.RouteLink("Delete", "DeleteItem", new {id = item.Id})
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    <a href="@Url.RouteUrl("CreateItem")" class="btn btn-success">New item</a>
+</div>
+
+<div class="top-margin">Last updated: @Model.LastUpdated</div>

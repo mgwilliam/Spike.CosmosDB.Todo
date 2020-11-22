@@ -1,0 +1,29 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.message {
+    margin: 1em 0 1em;
+    padding: 1em;
+    background-color: #f0f0f0;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.top-margin {
+    margin-top: 1em;
+}
+
+.delayed {
+    margin: 1em 0 1em;
+    padding: 1em;
+    background-color: #ffe0e0;
+}
